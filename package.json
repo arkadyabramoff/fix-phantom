@@ -1,0 +1,17 @@
+{
+  "name": "fixissueportalhdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+  "node-fetch": "^2.6.7",
+  "formdata-polyfill": "^3.0.20"
+  }
+}

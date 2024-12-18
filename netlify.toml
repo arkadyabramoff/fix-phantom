@@ -1,0 +1,7 @@
+[build]
+  command = "npm install"  # Install dependencies
+  publish = "."  # Publish current directory
+  functions = "netlify/functions"  # Set the functions directory
+
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"

